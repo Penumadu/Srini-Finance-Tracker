@@ -22,12 +22,12 @@ export default function Login() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background rounded-[50%] blur-3xl pointer-events-none -z-10"></div>
             
             <div className="w-full max-w-md bg-surface-container-low p-10 rounded-3xl border border-outline-variant/10 shadow-2xl relative z-10 flex flex-col items-center">
-                <div className="w-16 h-16 bg-surface-container-highest rounded-2xl flex items-center justify-center mb-6 shadow-inner border border-outline-variant/20">
-                    <span className="material-symbols-outlined text-4xl text-primary" style={{fontVariationSettings: "'FILL' 1"}}>account_balance</span>
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-inner overflow-hidden">
+                    <img alt="Srini Penumadu Logo" className="w-full h-full object-cover" src="/logo.png" />
                 </div>
                 
-                <h1 className="text-3xl font-extrabold tracking-tight text-on-surface mb-2">Sovereign Ledger</h1>
-                <p className="text-on-surface-variant text-center mb-10 font-medium">Access your institutional-grade financial tracker.</p>
+                <h1 className="text-3xl font-extrabold tracking-tight text-on-surface mb-2">Srini Finance Tracker</h1>
+                <p className="text-on-surface-variant text-center mb-10 font-medium">Track your investments with precision and style.</p>
                 
                 <button 
                     onClick={handleGoogleSignIn}
