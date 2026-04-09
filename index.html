@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Tracker</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#f9f9fd",
+                        "on-primary-container": "#00214e",
+                        "primary-container": "#6c9fff",
+                        "surface-variant": "#23262a",
+                        "primary-fixed": "#6c9fff",
+                        "on-primary-fixed-variant": "#002a60",
+                        "on-error-container": "#ffa8a3",
+                        "surface-container": "#171a1d",
+                        "on-primary-fixed": "#000000",
+                        "on-secondary-fixed-variant": "#2b48ac",
+                        "on-error": "#490006",
+                        "surface-container-highest": "#23262a",
+                        "surface": "#0c0e11",
+                        "inverse-primary": "#005bc1",
+                        "tertiary-container": "#f39cfb",
+                        "on-surface": "#f9f9fd",
+                        "secondary": "#7e98ff",
+                        "tertiary-dim": "#e48fed",
+                        "surface-container-low": "#111417",
+                        "on-secondary-container": "#c4ceff",
+                        "error-container": "#9f0519",
+                        "surface-container-high": "#1d2024",
+                        "tertiary-fixed": "#f39cfb",
+                        "surface-dim": "#0c0e11",
+                        "error-dim": "#d7383b",
+                        "inverse-surface": "#f9f9fd",
+                        "error": "#ff716c",
+                        "secondary-fixed": "#c6cfff",
+                        "inverse-on-surface": "#535559",
+                        "primary": "#84adff",
+                        "outline": "#747579",
+                        "outline-variant": "#46484b",
+                        "secondary-dim": "#7e98ff",
+                        "on-secondary-fixed": "#00298c",
+                        "tertiary": "#fab0ff",
+                        "on-primary": "#002c65",
+                        "surface-container-lowest": "#000000",
+                        "on-surface-variant": "#aaabaf",
+                        "secondary-fixed-dim": "#b3c1ff",
+                        "on-tertiary-fixed-variant": "#6a1f77",
+                        "surface-tint": "#84adff",
+                        "primary-dim": "#679dff",
+                        "background": "#0c0e11",
+                        "primary-fixed-dim": "#5091ff",
+                        "on-secondary": "#00185d",
+                        "on-tertiary": "#6b1f77",
+                        "tertiary-fixed-dim": "#e48fed",
+                        "surface-bright": "#292c31",
+                        "on-tertiary-container": "#60136d",
+                        "on-tertiary-fixed": "#41004d",
+                        "secondary-container": "#1e3da1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+  </head>
+  <body class="bg-surface text-on-surface min-h-screen pb-32">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

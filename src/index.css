@@ -1,0 +1,12 @@
+/* Tailwind is loaded via CDN in index.html */
+
+body { font-family: 'Manrope', sans-serif; }
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.tabular-nums { font-variant-numeric: tabular-nums; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+body {
+    min-height: max(884px, 100dvh);
+}
