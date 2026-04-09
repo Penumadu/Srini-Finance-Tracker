@@ -9,10 +9,10 @@ export default function Login() {
     const handleGoogleSignIn = async () => {
         try {
             await signInWithPopup(auth, googleProvider);
-            navigate('/portfolio');
+            navigate('/');
         } catch (error) {
             console.error("Error signing in with Google:", error);
-            alert("Failed to log in.");
+            alert(`Failed to log in: ${error.message} (${error.code})`);
         }
     };
 
