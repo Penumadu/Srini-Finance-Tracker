@@ -101,30 +101,31 @@ export default function PortfolioDetail({ user }) {
     const activeHoldings = Object.values(holdings).filter(h => h.shares > 0);
 
     return (
-        <main className="pt-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8 pb-32">
-            <section className="flex flex-col items-center justify-center py-10 space-y-3 relative">
-                <div className="absolute top-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background -z-10 pointer-events-none rounded-[50%] opacity-50 blur-3xl"></div>
+        <main className="pt-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 pb-32">
+            <section className="flex flex-col items-center justify-center py-14 space-y-4 relative select-none">
+                <div className="absolute top-0 w-full h-[150%] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background -z-10 pointer-events-none rounded-[50%] opacity-80 blur-3xl"></div>
                 
-                <span className="text-sm font-bold tracking-widest text-primary uppercase bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
+                <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase bg-primary/5 px-4 py-2 rounded-full border border-primary/20 backdrop-blur-md">
                     {portfolio.name}
                 </span>
 
-                <div className="flex items-baseline gap-2 tabular-nums">
-                    <span className="text-4xl text-on-surface-variant font-light">$</span>
-                    <h1 className="text-7xl sm:text-8xl font-black tracking-tighter text-on-surface">
+                <div className="flex items-baseline gap-2 tabular-nums font-display select-none">
+                    <span className="text-4xl text-on-surface-variant font-medium select-none">$</span>
+                    <h1 className="text-7xl sm:text-8xl font-extrabold tracking-tight text-on-surface">
                         {portfolio.balance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </h1>
                 </div>
             </section>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                <div className="lg:col-span-2 space-y-8">
-                    <section className="bg-surface-container-low rounded-3xl p-6 sm:p-8 relative overflow-hidden group">
+                <div className="lg:col-span-2 space-y-10">
+                    {/* Performance History */}
+                    <section className="bg-surface border border-outline-variant/60 rounded-[2rem] p-6 sm:p-8 relative overflow-hidden group hover:border-primary/20 transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
                         <div className="flex justify-between items-center mb-8 relative z-10">
-                            <h2 className="text-xl font-bold tracking-tight">Performance History</h2>
-                            <div className="flex gap-2">
-                                <button className="px-4 py-1.5 rounded-full bg-surface-container-highest text-xs font-bold text-on-surface">1D</button>
-                                <button className="px-4 py-1.5 rounded-full bg-primary text-on-primary text-xs font-bold">1W</button>
+                            <h2 className="text-xl font-bold tracking-tight font-display text-on-surface">Performance History</h2>
+                            <div className="flex gap-1.5 bg-surface-container-low p-1.5 rounded-full border border-outline-variant/50">
+                                <button className="px-4 py-1.5 rounded-full text-xs font-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-variant transition-all">1D</button>
+                                <button className="px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold shadow-md transition-all">1W</button>
                             </div>
                         </div>
 
@@ -132,40 +133,44 @@ export default function PortfolioDetail({ user }) {
                             <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 1000 200">
                                 <defs>
                                     <linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1">
-                                        <stop offset="0%" stopColor="#84adff" stopOpacity="0.3"></stop>
-                                        <stop offset="100%" stopColor="#84adff" stopOpacity="0"></stop>
+                                        <stop offset="0%" stopColor="#2563eb" stopOpacity="0.25"></stop>
+                                        <stop offset="100%" stopColor="#2563eb" stopOpacity="0"></stop>
                                     </linearGradient>
                                 </defs>
-                                <path d="M0,150 C100,160 200,140 300,100 C400,60 500,80 600,70 C700,60 800,90 900,40 L1000,20" fill="none" stroke="#84adff" strokeLinecap="round" strokeWidth="4"></path>
+                                <path d="M0,150 C100,160 200,140 300,100 C400,60 500,80 600,70 C700,60 800,90 900,40 L1000,20" fill="none" stroke="#2563eb" strokeLinecap="round" strokeWidth="4" className="filter drop-shadow-[0_4px_12px_rgba(37,99,235,0.3)]"></path>
                                 <path d="M0,150 C100,160 200,140 300,100 C400,60 500,80 600,70 C700,60 800,90 900,40 L1000,20 L1000,200 L0,200 Z" fill="url(#chartFill)"></path>
                             </svg>
                         </div>
                     </section>
 
+                    {/* Active Holdings */}
                     <section className="space-y-6">
-                         <div className="flex justify-between items-end">
-                            <h2 className="text-2xl font-bold tracking-tight">Active Holdings</h2>
+                         <div className="flex items-center gap-3 select-none">
+                            <div className="w-1.5 h-6 bg-primary rounded-full"></div>
+                            <h2 className="text-2xl font-bold tracking-tight font-display text-on-surface">Active Holdings</h2>
                          </div>
 
-                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                              {activeHoldings.length === 0 ? (
-                                 <div className="col-span-2 text-on-surface-variant p-6 text-center bg-surface-container rounded-2xl">
+                                 <div className="col-span-2 text-on-surface-variant p-8 text-center bg-surface-container-low rounded-[2rem] border border-outline-variant/60 font-medium shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
                                      No active holdings. Add a transaction to see it here.
                                  </div>
                              ) : activeHoldings.map((h, i) => (
-                                 <Link to={`/stock-detail/${h.ticker}`} key={i} className="group flex flex-col justify-between p-6 bg-surface-container rounded-3xl hover:bg-surface-container-high transition-colors cursor-pointer border border-transparent hover:border-outline-variant/30 relative overflow-hidden">
-                                    <div className="flex justify-between items-start mb-6 z-10">
+                                 <Link to={`/stock-detail/${h.ticker}`} key={i} className="group flex flex-col justify-between p-6 bg-surface border border-outline-variant/60 rounded-[2rem] hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 cursor-pointer relative overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(37,99,235,0.08)]">
+                                    <div className="flex justify-between items-start mb-8 z-10 relative">
                                         <div className="flex gap-4 items-center">
-                                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
-                                                <div className="text-black font-bold text-xl">{h.ticker.substring(0, 1)}</div>
+                                            <div className="w-12 h-12 bg-surface-container-high rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                                                <div className="text-on-surface font-extrabold text-xl font-display group-hover:text-primary">{h.ticker.substring(0, 1)}</div>
                                             </div>
                                             <div>
-                                                <h3 className="font-extrabold text-lg">{h.ticker}</h3>
-                                                <span className="text-xs font-bold text-on-surface-variant uppercase tracking-widest">{h.shares} Shares</span>
+                                                <h3 className="font-bold text-lg font-display text-on-surface group-hover:text-primary transition-colors">{h.ticker}</h3>
+                                                <span className="text-xs font-semibold text-on-surface-variant uppercase tracking-widest">{h.shares} Shares</span>
                                             </div>
                                         </div>
+                                        <div className="p-1 text-primary group-hover:translate-x-1 transition-transform duration-300">
+                                            <span className="material-symbols-outlined text-xl">arrow_forward</span>
+                                        </div>
                                     </div>
-                                    <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
                                  </Link>
                              ))}
                          </div>
@@ -173,31 +178,32 @@ export default function PortfolioDetail({ user }) {
                 </div>
 
                 <div className="space-y-8">
-                     <Link to={`/add-transaction/${portfolioId}`} className="flex flex-col items-center justify-center py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-black text-lg rounded-2xl shadow-[0_0_40px_rgba(132,173,255,0.15)] hover:shadow-[0_0_60px_rgba(132,173,255,0.25)] hover:brightness-110 active:scale-95 transition-all text-center">
-                        <span className="material-symbols-outlined mb-1">add</span>
-                        NEW TRANSACTION
+                     <Link to={`/add-transaction/${portfolioId}`} className="flex flex-col items-center justify-center py-5 bg-primary text-white font-bold text-base rounded-[1.5rem] shadow-[0_4px_14px_0_rgb(37,99,235,0.39)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:bg-blue-700 active:scale-95 transition-all duration-300 text-center select-none font-display tracking-wide uppercase">
+                        <span className="material-symbols-outlined mb-1 text-2xl">add</span>
+                        New Transaction
                     </Link>
 
-                    <section className="bg-surface-container-low rounded-3xl p-6 sm:p-8 border border-outline-variant/10">
+                    {/* Ledger section */}
+                    <section className="bg-surface border border-outline-variant/60 rounded-[2rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-primary/20 transition-all duration-300">
                         <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-xl font-bold tracking-tight">Recent Ledger</h2>
+                            <h2 className="text-xl font-bold tracking-tight font-display text-on-surface">Recent Ledger</h2>
                         </div>
-                        <div className="space-y-6">
+                        <div className="space-y-4">
                             {transactions.length === 0 ? (
-                                <div className="text-on-surface-variant text-sm text-center">No recent transactions.</div>
+                                <div className="text-on-surface-variant text-sm text-center py-4 font-medium">No recent transactions.</div>
                             ) : transactions.slice(0, 5).map(txn => (
-                                <div key={txn.id} className="flex justify-between items-center group cursor-pointer">
+                                <div key={txn.id} className="flex justify-between items-center group cursor-pointer hover:bg-surface-variant/50 p-3 rounded-2xl transition-all duration-200 border border-transparent hover:border-outline-variant/50">
                                     <div className="flex items-center gap-4">
-                                        <div className={`w-10 h-10 ${txn.type === 'buy' ? 'bg-primary/10 text-primary' : 'bg-surface-container-highest text-on-surface'} rounded-xl flex items-center justify-center`}>
-                                            <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>{txn.type === 'buy' ? 'call_made' : 'call_received'}</span>
+                                        <div className={`w-11 h-11 ${txn.type === 'buy' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-surface-container-high text-on-surface border border-outline-variant/60'} rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105`}>
+                                            <span className="material-symbols-outlined text-lg" style={{fontVariationSettings: "'FILL' 1"}}>{txn.type === 'buy' ? 'call_made' : 'call_received'}</span>
                                         </div>
                                         <div>
-                                            <div className="font-bold text-sm tracking-wide">{txn.ticker}</div>
+                                            <div className="font-bold text-sm tracking-wide text-on-surface font-display group-hover:text-primary transition-colors">{txn.ticker}</div>
                                             <div className="text-xs text-on-surface-variant font-medium mt-0.5 capitalize">{txn.type} • {new Date(txn.date).toLocaleDateString()}</div>
                                         </div>
                                     </div>
                                     <div className="text-right">
-                                        <div className="font-bold text-sm tabular-nums tracking-wide">${Number(txn.price).toFixed(2)}</div>
+                                        <div className="font-bold text-base tabular-nums tracking-wide text-on-surface font-display">${Number(txn.price).toFixed(2)}</div>
                                         <div className={`text-xs ${txn.type === 'buy' ? 'text-primary' : 'text-on-surface-variant'} font-bold tabular-nums mt-0.5`}>
                                             {txn.type === 'buy' ? '+' : '-'}{txn.shares}
                                         </div>

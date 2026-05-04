@@ -17,21 +17,21 @@ export default function Login() {
     };
 
     return (
-        <main className="min-h-screen flex items-center justify-center bg-surface px-6 relative overflow-hidden">
+        <main className="min-h-screen flex items-center justify-center bg-surface px-6 relative overflow-hidden select-none">
             {/* Ambient Background Effects */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background rounded-[50%] blur-3xl pointer-events-none -z-10"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/15 via-background to-background rounded-[50%] blur-3xl pointer-events-none -z-10 opacity-70"></div>
             
-            <div className="w-full max-w-md bg-surface-container-low p-10 rounded-3xl border border-outline-variant/10 shadow-2xl relative z-10 flex flex-col items-center">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-inner overflow-hidden">
-                    <img alt="Srini Penumadu Logo" className="w-full h-full object-cover" src="/logo.png" />
+            <div className="w-full max-w-md bg-surface-container-low/50 backdrop-blur-xl p-10 rounded-3xl border border-outline-variant/15 hover:border-primary/25 transition-all duration-500 shadow-2xl relative z-10 flex flex-col items-center">
+                <div className="w-20 h-20 bg-primary/10 border border-primary/20 p-2 rounded-3xl flex items-center justify-center mb-6 shadow-inner overflow-hidden group hover:scale-110 transition-transform duration-300">
+                    <img alt="Srini Penumadu Logo" className="w-full h-full object-cover rounded-2xl" src="/logo.png" />
                 </div>
                 
-                <h1 className="text-3xl font-extrabold tracking-tight text-on-surface mb-2">Srini Finance Tracker</h1>
-                <p className="text-on-surface-variant text-center mb-10 font-medium">Track your investments with precision and style.</p>
+                <h1 className="text-3xl font-extrabold tracking-tight text-on-surface mb-2 font-outfit text-center bg-clip-text text-transparent bg-gradient-to-r from-on-surface to-on-surface/85">Srini Finance Tracker</h1>
+                <p className="text-on-surface-variant text-center mb-10 font-bold text-sm tracking-wide opacity-80 select-none">Track your investments with precision & style.</p>
                 
                 <button 
                     onClick={handleGoogleSignIn}
-                    className="w-full py-4 bg-white text-black font-bold rounded-xl shadow-lg hover:bg-slate-200 active:scale-95 transition-all flex items-center justify-center gap-3"
+                    className="w-full py-4 bg-white text-black font-extrabold font-outfit text-base rounded-2xl shadow-xl hover:bg-slate-100 hover:scale-[1.03] active:scale-95 transition-all flex items-center justify-center gap-3 select-none"
                 >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
